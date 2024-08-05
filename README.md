@@ -21,11 +21,13 @@ svg image file to virtual microscope webpage on Github page
 
 1. VIPS binaries dosyalarını [buradan](https://github.com/libvips/build-win64-mxe/releases) indirin.
 2. Dosyayı bir klasöre çıkartın, örneğin `C:\vips`.
-3. `C:\vips\bin` yolunu sistem PATH değişkeninize ekleyin.
+3. `C:\vips\bin` yolunu sistem PATH değişkeninize ekleyin. PATH değişkeninize eklemeyi bilmiyorsanız internette "PATH değişkeninize ekleme" arayın.
 
 #### 1.2. SVS Dosyasını Dönüştürme
 
 Komut istemini açarak aşağıdaki komutu çalıştırın (Python kurulu olması gereklidir, kurulu değilse en aşağıda "Ek açıklama VIPS ile DZI Formatına Dönüştürme" bakın):
+svs dosyalarınızı şu dizine kaydedin C:\svs\
+Dönüştürülmüş dosyalar şu dizinde oluşacaktır  C:\svs\output_folder 
 
 ```bash
 cd C:\svs
