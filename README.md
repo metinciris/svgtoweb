@@ -1,9 +1,7 @@
 # svgtoweb
 svg image file to virtual microscope webpage on Github page
 
-Aşağıda, GitHub'da bir `.svg` dosyasını kullanarak sanal mikroskop web sayfası oluşturma ve paylaşma sürecini adım adım anlatan bir kılavuz bulunmaktadır. Bu kılavuz, Windows 10-11 kurulu bilgisayarlarda nasıl yapılacağını açıklamaktadır.
-
-Örnek web sayfası: https://metinciris.github.io/sliv/
+Anladım, `.svs` dosyasını `vips` kullanarak Deep Zoom Image (DZI) formatına dönüştürmek ve ardından bu çıktıyı GitHub üzerinde sanal mikroskop olarak paylaşmak istiyorsunuz. Aşağıda, bu işlemi nasıl yapabileceğinizi adım adım açıklayan bir kılavuz ve İngilizce ve Türkçe README dosyaları bulunmaktadır.
 
 ## Adım Adım Kılavuz
 
@@ -12,11 +10,34 @@ Aşağıda, GitHub'da bir `.svg` dosyasını kullanarak sanal mikroskop web sayf
 - **GitHub Hesabı:** GitHub'da bir hesap oluşturun.
 - **GitHub Desktop:** [GitHub Desktop](https://desktop.github.com/) uygulamasını indirin ve kurun.
 - **Metin Düzenleyici:** Visual Studio Code veya Notepad++ gibi bir metin düzenleyici kullanabilirsiniz.
+- **VIPS:** VIPS kütüphanesi yüklü olmalıdır.
 - **OpenSeadragon:** Sanal mikroskop için kullanacağımız JavaScript kütüphanesi.
 
-### 1. Proje Klasörünü Hazırlayın
+### 1. VIPS ile DZI Formatına Dönüştürme
 
-#### 1.1. Klasör Yapısı Oluşturun
+#### 1.1. VIPS Kurulumu
+
+1. VIPS binaries dosyalarını [buradan](https://github.com/libvips/build-win64-mxe/releases) indirin.
+2. Dosyayı bir klasöre çıkartın, örneğin `C:\vips`.
+3. `C:\vips\bin` yolunu sistem PATH değişkeninize ekleyin.
+
+#### 1.2. SVS Dosyasını Dönüştürme
+
+Komut istemini açarak aşağıdaki komutu çalıştırın:
+
+```bash
+cd C:\svs
+vips dzsave file_name.svs output_folder\output
+```
+
+- `file_name.svs`: Dönüştürmek istediğiniz SVS dosyanızın adı.
+- `output_folder\output`: DZI formatına dönüştürülmüş dosyaların kaydedileceği klasör.
+
+Bu işlem, `output.dzi` dosyası ve `output_files` klasörünü oluşturacaktır.
+
+### 2. Proje Klasörünü Hazırlayın
+
+#### 2.1. Klasör Yapısı Oluşturun
 
 Bilgisayarınızda bir proje klasörü oluşturun ve aşağıdaki yapıyı oluşturun:
 
@@ -24,19 +45,14 @@ Bilgisayarınızda bir proje klasörü oluşturun ve aşağıdaki yapıyı oluş
 my-microscope
 │
 ├── index.html
-└── assets
-    └── images
-        └── your-image.svg
+└── output
+    ├── output.dzi
+    └── output_files/
 ```
 
-- `index.html`: Ana HTML dosyası.
-- `assets/images/`: `.svg` dosyanızı bu klasöre koyun.
+- `output/`: VIPS ile dönüştürülmüş dosyalarınızı bu klasöre kopyalayın.
 
-#### 1.2. OpenSeadragon'u İndirin
-
-[OpenSeadragon](https://openseadragon.github.io/) kütüphanesini kullanacağız. `index.html` dosyasında kullanmak üzere OpenSeadragon'un CDN bağlantısını ekleyeceğiz.
-
-### 2. index.html Dosyasını Oluşturun
+### 3. index.html Dosyasını Oluşturun
 
 Aşağıdaki HTML kodunu `index.html` dosyasına yapıştırın:
 
@@ -64,27 +80,22 @@ Aşağıdaki HTML kodunu `index.html` dosyasına yapıştırın:
         var viewer = OpenSeadragon({
             id: "openseadragon",
             prefixUrl: "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/2.4.2/images/",
-            tileSources: {
-                type: 'image',
-                url: 'assets/images/your-image.svg'
-            }
+            tileSources: "output/output.dzi"
         });
     </script>
 </body>
 </html>
 ```
 
-- **Görsel Yolu:** `'assets/images/your-image.svg'` kısmını `.svg` dosyanızın yolu ile değiştirin.
+### 4. GitHub Reposu Oluşturma
 
-### 3. GitHub Reposu Oluşturma
-
-#### 3.1. GitHub'da Yeni Repo Oluşturma
+#### 4.1. GitHub'da Yeni Repo Oluşturma
 
 1. GitHub hesabınıza giriş yapın.
 2. Sağ üst köşede bulunan `+` simgesine tıklayın ve `New repository` seçeneğine tıklayın.
 3. Proje adını (örneğin, `my-microscope`) girin ve `Create repository` butonuna tıklayın.
 
-#### 3.2. GitHub Desktop Kullanarak Projeyi Yükleyin
+#### 4.2. GitHub Desktop Kullanarak Projeyi Yükleyin
 
 1. GitHub Desktop uygulamasını açın.
 2. `File > New repository` seçeneğine gidin.
@@ -95,7 +106,7 @@ Aşağıdaki HTML kodunu `index.html` dosyasına yapıştırın:
 7. Sağ altta bulunan `Commit to main` butonuna tıklayın.
 8. `Publish repository` butonuna tıklayın ve ayarları yaparak projeyi GitHub'a yükleyin.
 
-### 4. GitHub Pages Ayarları
+### 5. GitHub Pages Ayarları
 
 1. GitHub'daki projenizin sayfasına gidin.
 2. `Settings` sekmesine tıklayın.
@@ -112,7 +123,7 @@ GitHub Pages sayfanız birkaç dakika içinde yayınlanacaktır. Yayınlanan say
 ```markdown
 # Virtual Microscope
 
-This project demonstrates how to create a virtual microscope using an SVG image and OpenSeadragon. You can explore the image in detail as if you're using a real microscope.
+This project demonstrates how to create a virtual microscope using a DZI image generated from an SVS file and OpenSeadragon. You can explore the image in detail as if you're using a real microscope.
 
 ## Project Structure
 
@@ -120,9 +131,9 @@ This project demonstrates how to create a virtual microscope using an SVG image 
 my-microscope
 │
 ├── index.html
-└── assets
-    └── images
-        └── your-image.svg
+└── output
+    ├── output.dzi
+    └── output_files/
 ```
 
 ## How to Run
@@ -136,12 +147,12 @@ The project is published on GitHub Pages and can be accessed via this [link](htt
 
 ## Notes
 
-- Replace `your-image.svg` with your own SVG file in the `assets/images` directory.
+- The DZI file and the tiles in the `output_files` directory were generated using VIPS.
 - You can use GitHub Desktop to manage and upload your files to GitHub.
 
 ---
 
-This project is a simple demonstration of how to use OpenSeadragon for viewing SVG images on the web.
+This project is a simple demonstration of how to use OpenSeadragon for viewing DZI images on the web.
 ```
 
 #### README_tr.md (Türkçe)
@@ -149,7 +160,7 @@ This project is a simple demonstration of how to use OpenSeadragon for viewing S
 ```markdown
 # Sanal Mikroskop
 
-Bu proje, bir SVG görüntüsünü ve OpenSeadragon'u kullanarak nasıl sanal mikroskop oluşturabileceğinizi gösterir. Görüntüyü gerçek bir mikroskop kullanıyormuş gibi detaylı inceleyebilirsiniz.
+Bu proje, bir SVS dosyasından üretilmiş DZI görüntüsünü ve OpenSeadragon'u kullanarak nasıl sanal mikroskop oluşturabileceğinizi gösterir. Görüntüyü gerçek bir mikroskop kullanıyormuş gibi detaylı inceleyebilirsiniz.
 
 ## Proje Yapısı
 
@@ -157,9 +168,9 @@ Bu proje, bir SVG görüntüsünü ve OpenSeadragon'u kullanarak nasıl sanal mi
 my-microscope
 │
 ├── index.html
-└── assets
-    └── images
-        └── your-image.svg
+└── output
+    ├── output.dzi
+    └── output_files/
 ```
 
 ## Nasıl Çalıştırılır
@@ -173,16 +184,16 @@ Proje GitHub Pages üzerinde yayınlanmıştır ve şu [bağlantı](https://<kul
 
 ## Notlar
 
-- `your-image.svg` dosyasını `assets/images` dizininde kendi SVG dosyanızla değiştirin.
+- `output_files` dizinindeki DZI dosyası ve parçalar VIPS kullanılarak oluşturulmuştur.
 - Dosyalarınızı GitHub'a yüklemek ve yönetmek için GitHub Desktop kullanabilirsiniz.
 
 ---
 
-Bu proje, SVG görüntülerini web üzerinde görüntülemek için OpenSeadragon kullanımının basit bir gösterimidir.
+Bu proje, DZI görüntülerini web üzerinde görüntülemek için OpenSeadragon kullanımının basit bir gösterimidir.
 ```
 
 ### Sonuç
 
-Bu adımları takip ederek `.svg` dosyanızı sanal mikroskop olarak görüntüleyen bir web sayfasını GitHub üzerinden oluşturup paylaşabilirsiniz. Eğer daha fazla yardıma ihtiyaç duyarsanız veya başka sorularınız varsa lütfen bildirin!
+Bu adımları takip ederek `.svs` dosyanızı DZI formatına dönüştürüp sanal mikroskop olarak görüntüleyen bir web sayfasını GitHub üzerinden oluşturup paylaşabilirsiniz.
 
 ÖRnek Çıktı: https://metinciris.github.io/sliv/
