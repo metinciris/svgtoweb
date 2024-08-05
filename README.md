@@ -118,84 +118,11 @@ Aşağıdaki HTML kodunu `index.html` dosyasına yapıştırın:
 
 GitHub Pages sayfanız birkaç dakika içinde yayınlanacaktır. Yayınlanan sayfanın URL'si `https://<kullanıcı_adınız>.github.io/my-microscope/` formatında olacaktır.
 
-### İngilizce ve Türkçe README Dosyaları
+Örnek çıktı: https://metinciris.github.io/sliv/
 
-#### README.md (English)
+### ##############################################################################
 
-```markdown
-# Virtual Microscope
-
-This project demonstrates how to create a virtual microscope using a DZI image generated from an SVS file and OpenSeadragon. You can explore the image in detail as if you're using a real microscope.
-
-## Project Structure
-
-```
-my-microscope
-│
-├── index.html
-└── output
-    ├── output.dzi
-    └── output_files/
-```
-
-## How to Run
-
-1. Clone the repository to your local machine.
-2. Open `index.html` in a web browser.
-
-## GitHub Pages
-
-The project is published on GitHub Pages and can be accessed via this [link](https://<username>.github.io/my-microscope/).
-
-## Notes
-
-- The DZI file and the tiles in the `output_files` directory were generated using VIPS.
-- You can use GitHub Desktop to manage and upload your files to GitHub.
-
----
-
-This project is a simple demonstration of how to use OpenSeadragon for viewing DZI images on the web.
-```
-
-#### README_tr.md (Türkçe)
-
-```markdown
-# Sanal Mikroskop
-
-Bu proje, bir SVS dosyasından üretilmiş DZI görüntüsünü ve OpenSeadragon'u kullanarak nasıl sanal mikroskop oluşturabileceğinizi gösterir. Görüntüyü gerçek bir mikroskop kullanıyormuş gibi detaylı inceleyebilirsiniz.
-
-## Proje Yapısı
-
-```
-my-microscope
-│
-├── index.html
-└── output
-    ├── output.dzi
-    └── output_files/
-```
-
-## Nasıl Çalıştırılır
-
-1. Depoyu yerel makinenize klonlayın.
-2. `index.html` dosyasını bir web tarayıcısında açın.
-
-## GitHub Pages
-
-Proje GitHub Pages üzerinde yayınlanmıştır ve şu [bağlantı](https://<kullanıcı_adı>.github.io/my-microscope/) üzerinden erişilebilir.
-
-## Notlar
-
-- `output_files` dizinindeki DZI dosyası ve parçalar VIPS kullanılarak oluşturulmuştur.
-- Dosyalarınızı GitHub'a yüklemek ve yönetmek için GitHub Desktop kullanabilirsiniz.
-
----
-
-Bu proje, DZI görüntülerini web üzerinde görüntülemek için OpenSeadragon kullanımının basit bir gösterimidir.
-```
-
-### Ek açıklama VIPS ile DZI Formatına Dönüştürme 
-
+### Ek açıklama Python kurulumu,  VIPS ile DZI Formatına Dönüştürme 
 
 ### A. Python Kurulumu
 
