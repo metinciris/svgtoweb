@@ -25,7 +25,7 @@ svg image file to virtual microscope webpage on Github page
 
 #### 1.2. SVS Dosyasını Dönüştürme
 
-Komut istemini açarak aşağıdaki komutu çalıştırın:
+Komut istemini açarak aşağıdaki komutu çalıştırın (Python kurulu olması gereklidir, kurulu değilse en aşağıda "Ek açıklama VIPS ile DZI Formatına Dönüştürme" bakın):
 
 ```bash
 cd C:\svs
@@ -193,6 +193,85 @@ Proje GitHub Pages üzerinde yayınlanmıştır ve şu [bağlantı](https://<kul
 
 Bu proje, DZI görüntülerini web üzerinde görüntülemek için OpenSeadragon kullanımının basit bir gösterimidir.
 ```
+
+### Ek açıklama VIPS ile DZI Formatına Dönüştürme 
+
+
+### A. Python Kurulumu
+
+#### Adım 1: Python İndirin
+
+1. Python'ın en son sürümünü [Python resmi web sitesi](https://www.python.org/downloads/) üzerinden indirin.
+2. Windows için uygun olan `Python 3.x` sürümünü seçin.
+
+#### Adım 2: Python Yükleyin
+
+1. İndirilen kurulum dosyasını (`python-3.x.x.exe`) çalıştırın.
+2. **"Add Python to PATH"** seçeneğini işaretleyin.
+3. **"Install Now"** seçeneğine tıklayın ve kurulumu tamamlayın.
+
+#### Adım 3: Kurulumu Kontrol Edin
+
+Komut İstemini (`cmd`) açın ve aşağıdaki komutları çalıştırarak Python'ın düzgün yüklendiğini doğrulayın:
+
+```bash
+python --version
+pip --version
+```
+
+### B. VIPS Kurulumu
+
+#### Adım 1: VIPS Binaries İndirin
+
+1. VIPS binaries dosyalarını [buradan](https://github.com/libvips/build-win64-mxe/releases) indirin.
+2. En son sürümü seçin ve ZIP dosyasını indirin.
+
+#### Adım 2: VIPS Dosyalarını Çıkartın
+
+1. İndirilen ZIP dosyasını `C:\vips` gibi bir klasöre çıkartın.
+
+#### Adım 3: VIPS'i Sistem PATH'ine Ekleyin
+
+1. `C:\vips\bin` yolunu sistem PATH değişkeninize ekleyin:
+   - `Bilgisayarım` üzerine sağ tıklayın ve `Özellikler` seçeneğine gidin.
+   - `Gelişmiş sistem ayarları`na tıklayın ve ardından `Çevre Değişkenleri`ne girin.
+   - `Sistem değişkenleri` altında, `Path` seçeneğini bulun ve `Düzenle`ye tıklayın.
+   - `Yeni` butonuna tıklayarak `C:\vips\bin` yolunu ekleyin.
+
+#### Adım 4: Kurulumu Kontrol Edin
+
+Komut İstemini (`cmd`) açın ve aşağıdaki komutu çalıştırarak VIPS'in düzgün yüklendiğini doğrulayın:
+
+```bash
+vips --version
+```
+
+### C. SVS Dosyasını DZI Formatına Dönüştürme
+
+1. Komut İstemini (`cmd`) açın.
+2. SVS dosyanızın bulunduğu dizine gidin:
+
+   ```bash
+   cd C:\svs
+   ```
+
+3. Aşağıdaki komutu kullanarak SVS dosyanızı DZI formatına dönüştürün:
+
+   ```bash
+   vips dzsave file_name.svs output_folder\output
+   ```
+
+   - `file_name.svs`: Dönüştürmek istediğiniz SVS dosyanızın adı.
+   - `output_folder\output`: Dönüştürülmüş DZI dosyalarının ve parçalarının kaydedileceği klasör.
+
+Bu işlem sonucunda, `output.dzi` dosyası ve `output_files` klasörü oluşturulacaktır.
+
+### D. Proje Dosyalarını GitHub'a Yükleme
+
+1. DZI dosyalarını ve `output_files` klasörünü proje klasörünüze (`my-microscope`) kopyalayın.
+2. GitHub Desktop kullanarak projeyi GitHub'a yükleyin ve GitHub Pages üzerinden yayınlayın.
+
+Bu adımlar ile, SVS dosyanızı başarıyla DZI formatına dönüştürebilir ve GitHub üzerinde sanal mikroskop olarak paylaşabilirsiniz. Yardımcı olabileceğim başka bir konu varsa lütfen belirtin!
 
 ### Sonuç
 
