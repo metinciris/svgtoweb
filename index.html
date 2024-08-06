@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slayt 1</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/openseadragon/3.0.0/openseadragon.min.js"></script>
+    <style>
+        body { margin: 0; }
+        #viewer { width: 100vw; height: 100vh; }
+    </style>
+</head>
+<body>
+    <div id="viewer"></div>
+
+    <script type="text/javascript">
+        var viewer = OpenSeadragon({
+            id: "viewer",
+            prefixUrl: "https://cdnjs.cloudflare.com/ajax/libs/openseadragon/3.0.0/images/",
+            tileSources: "output.dzi" // output.dzi dosya yolunu belirtin
+        });
+    </script>
+</body>
+</html>
