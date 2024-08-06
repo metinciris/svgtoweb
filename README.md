@@ -5,6 +5,8 @@ svg image file to virtual microscope webpage on Github page
  
  Aşağıda, bu işlemi nasıl yapabileceğinizi  bir kılavuz mevcuttur.
 
+ Projemizin dosyaları içeridedir: https://github.com/metinciris/svgtoweb bakabilirsiniz.
+
 ## Adım Adım Kılavuz
 
 ### Gereksinimler
