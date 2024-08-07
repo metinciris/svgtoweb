@@ -5,8 +5,8 @@ svg image file to virtual microscope webpage on Github page
  
  Aşağıda, bu işlemi nasıl yapabileceğinizi  bir kılavuz mevcuttur.
 
- Projemizin dosyaları içeridedir: https://github.com/metinciris/svgtoweb bakabilirsiniz.
-
+ Projemizin çıktısı web sayfası olarak şu şekildedir:[ [https://github.com/metinciris/svgtoweb bakabilirsiniz.](https://metinciris.github.io/svgtoweb/)
+](https://metinciris.github.io/svgtoweb/)
 ## Adım Adım Kılavuz
 
 ### Gereksinimler
@@ -208,4 +208,4 @@ Bu adımlar ile, SVS dosyanızı başarıyla DZI formatına dönüştürebilir v
 
 Bu adımları takip ederek `.svs` dosyanızı DZI formatına dönüştürüp sanal mikroskop olarak görüntüleyen bir web sayfasını GitHub üzerinden oluşturup paylaşabilirsiniz.
 
-ÖRnek Çıktı: https://metinciris.github.io/sliv/
+Öenek başka gösterim: https://metinciris.github.io/sliv/
