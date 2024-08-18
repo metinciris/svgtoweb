@@ -6,7 +6,7 @@ svs image file to virtual microscope webpage on Github page
  Aşağıda, bu işlemi nasıl yapabileceğinizi  bir kılavuz mevcuttur.
 
  Projemizin çıktısı web sayfası olarak şu şekildedir:[ [https://github.com/metinciris/svgtoweb bakabilirsiniz.](https://metinciris.github.io/svgtoweb/)
-](https://metinciris.github.io/svgtoweb/)
+](https://metinciris.github.io/svstoweb/)
 ## Adım Adım Kılavuz
 
 ### Gereksinimler
