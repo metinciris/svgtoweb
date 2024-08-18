@@ -1,7 +1,7 @@
-# svgtoweb
-svg image file to virtual microscope webpage on Github page
+# svstoweb
+svs image file to virtual microscope webpage on Github page
 
- `.svs` dosyasını `vips` kullanarak Deep Zoom Image (DZI) formatına dönüştürmek ve ardından bu çıktıyı GitHub üzerinde sanal mikroskop olarak paylaşmak. 
+ `.svs` resim tarama dosyasını `vips` kullanarak Deep Zoom Image (DZI) formatına dönüştürmek ve ardından bu çıktıyı GitHub üzerinde sanal mikroskop olarak paylaşmak. 
  
  Aşağıda, bu işlemi nasıl yapabileceğinizi  bir kılavuz mevcuttur.
 
